@@ -1,0 +1,8 @@
+disabled_rules:
+- trailing_whitespace
+- function_body_length
+- nesting
+line_length: 200
+identifier_name:
+  excluded:
+    - id

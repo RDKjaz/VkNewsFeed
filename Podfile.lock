@@ -1,0 +1,20 @@
+PODS:
+  - SwiftLint (0.40.3)
+  - VK-ios-sdk (1.6.2)
+
+DEPENDENCIES:
+  - SwiftLint
+  - VK-ios-sdk
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
+    - VK-ios-sdk
+
+SPEC CHECKSUMS:
+  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
+  VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
+
+PODFILE CHECKSUM: f609fcde9dd45d86698099234211992e47fc7a91
+
+COCOAPODS: 1.11.3

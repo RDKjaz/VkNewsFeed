@@ -2,21 +2,34 @@
 //  SceneDelegate.swift
 //  VkNewsFeed
 //
-//  Created by Radik Gazetdinov on 12.09.2022.
-//
 
 import UIKit
+import VK_ios_sdk
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var authService: AuthService!
 
+    static func shared() -> SceneDelegate {
+        let scene = UIApplication.shared.connectedScenes.first
+        let sceneDelegate: SceneDelegate = (((scene?.delegate as? SceneDelegate)!))
+        return sceneDelegate
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let winddowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winddowScene)
+        authService = AuthService()
+        authService.delegate = self
+        window?.rootViewController = AuthViewController()
+        window?.makeKeyAndVisible()
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +60,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
 
+// MARK: - AuthServiceDelegate
+
+extension SceneDelegate: AuthServiceDelegate {
+
+    func shouldShow(controller: UIViewController) {
+        window?.rootViewController?.present(controller, animated: true, completion: nil)
+    }
+
+    func signIn() {
+        let newsFeedViewController = UIStoryboard(name: "NewsFeedViewController", bundle: nil).instantiateInitialViewController() as? NewsFeedViewController
+        let navViewController = UINavigationController(rootViewController: newsFeedViewController!)
+        navViewController.navigationBar.scrollEdgeAppearance = navViewController.navigationBar.standardAppearance
+        window?.rootViewController = navViewController
+    }
+
+    func signInDidFail() {
+        print(#function)
+    }
+}

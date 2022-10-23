@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--News Feed View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NewsFeedViewController" id="Y6W-OH-hqX" customClass="NewsFeedViewController" customModule="VkNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU9-V8-a18" customClass="GradientBackgroundView" customModule="VkNewsFeed" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dlL-TW-f1r">
+                                <rect key="frame" x="0.0" y="13" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="6OL-Lr-297">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6OL-Lr-297" id="sUF-hb-6CY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="CBq-xR-8XM"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="dgV-s7-GRS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GU9-V8-a18" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Gwb-hG-0LE"/>
+                            <constraint firstItem="GU9-V8-a18" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Kls-md-IC5"/>
+                            <constraint firstItem="dlL-TW-f1r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="13" id="LRQ-pb-U31"/>
+                            <constraint firstItem="GU9-V8-a18" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Sn2-Tg-Qnm"/>
+                            <constraint firstItem="dlL-TW-f1r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZrM-ld-ahe"/>
+                            <constraint firstItem="GU9-V8-a18" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="a8U-WE-xNs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dlL-TW-f1r" secondAttribute="trailing" id="cGn-ub-v3Z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dlL-TW-f1r" secondAttribute="bottom" id="dZw-iH-a3B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="dlL-TW-f1r" id="gXj-7P-x2y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="28.532608695652176"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
