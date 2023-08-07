@@ -1,8 +1,13 @@
-# VkNewsFeed
-This application for wathcing news from VK with using Clean Architecture(VIP) and VK SDK
+# VK News Feed iOS App
 
-# Screenshots
-![videovknewsfeed](https://user-images.githubusercontent.com/55765369/197415167-b6e28dbe-38a6-4c23-9a0d-1f05a1c2bc59.gif)
+## Stack
+- iOS 15.2+  
+- Swift, UIKit, Programmatically Autolayout, URLSession
+- Libraries: VK SDK
+- Architecture: Clean Architecture(VIP)
+
+## Preview
+![Record](https://github.com/RDKjaz/VkNewsFeed/assets/55765369/e69c478d-3d35-446d-aed5-4144522fb0a2)
 
 # Install instructions
 ### 1. Clone this repository and install pods with command 'pod install' in root directory of project
