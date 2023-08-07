@@ -1,4 +1,5 @@
 # VK News Feed iOS App
+Application for view news feed in VK
 
 ## Stack
 - iOS 15.2+  
